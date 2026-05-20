@@ -8,6 +8,7 @@ This is a group coursework project, maintained here under Snega Murugan's GitHub
 
 ## Repository Contents
 
+- `streamlit_app.py` - Lightweight dashboard for sample X-ray inspection and demo probability display.
 - `Final_Code_Part1.ipynb` - Main model-building notebook.
 - `Class Distribution.ipynb` - Class balance exploration.
 - `Image Processing/` - Image augmentation notebooks.
@@ -30,6 +31,12 @@ pip install -r requirements.txt
 ```
 
 ## Run
+
+Launch the dashboard:
+
+```powershell
+streamlit run streamlit_app.py
+```
 
 Start Jupyter and open the notebooks:
 
