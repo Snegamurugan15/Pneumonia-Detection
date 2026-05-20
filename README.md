@@ -1,60 +1,62 @@
-# Pneumonia Detection
+# Pneumonia Detection Using CNN and VGG16
 
-Coursework project exploring pneumonia detection from chest X-ray images with deep learning. The repository contains notebooks for image preprocessing, augmentation, data splitting, CNN/VGG-style model work, class distribution analysis, and LIME-based model interpretability.
+This is a deep learning coursework project for classifying chest X-ray images as Normal, Bacterial Pneumonia, or Viral Pneumonia. The original repository contains notebooks for class distribution analysis, image augmentation, data splitting, CNN/VGG16 model building, and LIME interpretability. This cleaned version keeps those notebooks and adds production-style Python modules for training, inference, Grad-CAM, and a Dash-based model review tool.
 
-## Project Context
+## Project Goals
 
-This is a group coursework project, maintained here under Snega Murugan's GitHub profile as a clean portfolio copy. Original collaboration repository: [Sangavisambathkumar/Pneumonia-Detection](https://github.com/Sangavisambathkumar/Pneumonia-Detection).
+- Build a CNN/transfer-learning classifier for chest X-ray images.
+- Compare normal, bacterial, and viral pneumonia patterns.
+- Use augmentation and train/validation/test splitting for model robustness.
+- Add explainability workflows with LIME and Grad-CAM-style heatmaps.
+- Present sample predictions in a lightweight Dash review interface.
 
 ## Repository Contents
 
-- `streamlit_app.py` - Lightweight dashboard for sample X-ray inspection and demo probability display.
-- `Final_Code_Part1.ipynb` - Main model-building notebook.
-- `Class Distribution.ipynb` - Class balance exploration.
-- `Image Processing/` - Image augmentation notebooks.
-- `Data_Splitting/` - Dataset split workflow.
-- `Model_Interpretability_LIME.ipynb` - LIME explanation workflow.
-- `PARAMETRIC TREND.csv` - Small experiment-tracking CSV.
-- `Presentation.pptx` and `Pitching the Project.docx` - Project presentation materials.
-- `sample_images/` - Small local reference images used for documentation and quick inspection.
+- `src/train_cnn.py` - VGG16 transfer-learning training script.
+- `src/inference.py` - reusable model inference helper and CLI.
+- `src/gradcam.py` - Grad-CAM heatmap utility.
+- `dash_app.py` - Dash review app for sample images and probability display.
+- `Final_Code_Part1.ipynb` - original model-building notebook.
+- `Class Distribution.ipynb` - original class-balance exploration.
+- `Image Processing/` - original augmentation notebooks.
+- `Data_Splitting/` - original split workflow.
+- `Model_Interpretability_LIME.ipynb` - original LIME interpretability workflow.
+- `sample_images/` - small public sample images for interface testing.
 
 ## Dataset
 
-The full chest X-ray dataset is not committed to this repository. Place the dataset locally in a `data/` or `dataset/` directory and update notebook paths as needed before running the training workflow.
+The full chest X-ray dataset is not committed because medical image datasets can be large and licensing-sensitive. Place the dataset locally using this structure:
 
-## Setup
+```text
+data/chest_xray/
+  train/
+  val/
+  test/
+```
+
+## Run Training
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
+python src/train_cnn.py
 ```
 
-## Run
+The trained model is written to `models/pneumonia_vgg16.keras`, which is ignored by Git.
 
-Launch the dashboard:
+## Run Inference
 
 ```powershell
-streamlit run streamlit_app.py
+python src/inference.py --model models/pneumonia_vgg16.keras --image sample_images/person38_virus_83.jpeg.jpg
 ```
 
-Start Jupyter and open the notebooks:
+## Run Dash Review App
 
 ```powershell
-jupyter notebook
+python dash_app.py
 ```
 
-Recommended order:
+## Medical Disclaimer
 
-1. `Class Distribution.ipynb`
-2. `Image Processing/Image Augmentation Part-1.ipynb`
-3. `Image Processing/Image Augmentation Part - 2.ipynb`
-4. `Data_Splitting/Data Splitting.ipynb`
-5. `Final_Code_Part1.ipynb`
-6. `Model_Interpretability_LIME.ipynb`
-
-## Notes
-
-- This is an educational ML project, not medical diagnosis software.
-- Do not commit full medical datasets, trained model checkpoints, or patient-identifiable data.
-- Keep the original group-project attribution visible when reusing or extending this work.
+This is an educational ML project, not medical diagnosis software. It should not be used for clinical decisions.

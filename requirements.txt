@@ -1,8 +1,6 @@
 jupyter
-streamlit
 numpy
 pandas
-plotly
 matplotlib
 seaborn
 scikit-learn
@@ -11,3 +9,5 @@ keras
 pillow
 lime
 scikit-image
+dash
+plotly
