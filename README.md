@@ -2,6 +2,8 @@
 
 This is a deep learning coursework project for classifying chest X-ray images as Normal, Bacterial Pneumonia, or Viral Pneumonia. The original repository contains notebooks for class distribution analysis, image augmentation, data splitting, CNN/VGG16 model building, and LIME interpretability. This cleaned version keeps those notebooks and adds production-style Python modules for training, inference, Grad-CAM, and a Dash-based model review tool.
 
+Live demo presented with the group project: [Hugging Face Space](https://yokeshwar-p-d.hf.space/)
+
 ## Project Goals
 
 - Build a CNN/transfer-learning classifier for chest X-ray images.
@@ -22,6 +24,11 @@ This is a deep learning coursework project for classifying chest X-ray images as
 - `Data_Splitting/` - original split workflow.
 - `Model_Interpretability_LIME.ipynb` - original LIME interpretability workflow.
 - `sample_images/` - small public sample images for interface testing.
+- `Presentation.pptx` - final group presentation covering dataset, VGG16 architecture, LIME interpretability, Dash UI, and demo link.
+
+## Group Project Context
+
+This was a group project. The final presentation lists the contributors as Yokeshwar Boopathy, Snega Murugan, Anand Vinoy, Aravindsamy, Muthu Laxman, Abhey Gill Singh, and Sangavi Sambathkumar. The public portfolio version highlights the ML workflow, app interface, and explainability components.
 
 ## Dataset
 
